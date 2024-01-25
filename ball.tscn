@@ -14,3 +14,13 @@ texture = ExtResource("1_ir4di")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v6em0")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="DebugVector" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 20, 0)
+width = 2.0
+default_color = Color(0, 0.988235, 0.439216, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

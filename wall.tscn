@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://0rm0s4koe4ud"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_xx5h3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aut52"]
+size = Vector2(1480, 20)
+
+[node name="Wall" type="StaticBody2D"]
+script = ExtResource("1_xx5h3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -740.0
+offset_top = -10.0
+offset_right = 740.0
+offset_bottom = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aut52")

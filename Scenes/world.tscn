@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdkladd1tenw4"]
+[gd_scene load_steps=7 format=3 uid="uid://bdkladd1tenw4"]
 
 [ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://paddle.tscn" id="1_jgmg6"]
 [ext_resource type="PackedScene" uid="uid://drkiyqaivlnmv" path="res://ball.tscn" id="2_mihg6"]
 [ext_resource type="Script" path="res://Scenes/bounds.gd" id="3_bi8nu"]
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="4_cn3q2"]
+[ext_resource type="PackedScene" uid="uid://0rm0s4koe4ud" path="res://wall.tscn" id="5_g71vk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv71y"]
 size = Vector2(50, 800)
@@ -12,14 +13,19 @@ size = Vector2(50, 800)
 
 [node name="LeftPaddle" parent="." instance=ExtResource("1_jgmg6")]
 position = Vector2(25, 360)
+collision_layer = 8
+collision_mask = 3
 paddle_side = "L"
 
 [node name="RightPaddle" parent="." instance=ExtResource("1_jgmg6")]
 position = Vector2(1255, 360)
+collision_layer = 8
+collision_mask = 3
 paddle_side = "R"
 
 [node name="Ball" parent="." instance=ExtResource("2_mihg6")]
 position = Vector2(640, 360)
+collision_mask = 11
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -37,12 +43,14 @@ script = ExtResource("3_bi8nu")
 
 [node name="LeftBounds" type="Area2D" parent="Bounds"]
 position = Vector2(-25, 360)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/LeftBounds"]
 shape = SubResource("RectangleShape2D_hv71y")
 
 [node name="RightBounds" type="Area2D" parent="Bounds"]
 position = Vector2(1305, 360)
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/RightBounds"]
 shape = SubResource("RectangleShape2D_hv71y")
@@ -70,9 +78,17 @@ offset_right = 1024.0
 offset_bottom = 32.0
 text = "0"
 
-[connection signal="player_1_scored" from="Bounds" to="Ball" method="_reset_ball"]
+[node name="Wall" parent="." instance=ExtResource("5_g71vk")]
+position = Vector2(640, 0)
+collision_layer = 2
+
+[node name="Wall2" parent="." instance=ExtResource("5_g71vk")]
+position = Vector2(640, 720)
+collision_layer = 2
+
+[connection signal="player_1_scored" from="Bounds" to="Ball" method="_p1_score_reset"]
 [connection signal="player_1_scored" from="Bounds" to="UI" method="_on_bounds_player_1_scored"]
-[connection signal="player_2_scored" from="Bounds" to="Ball" method="_reset_ball"]
+[connection signal="player_2_scored" from="Bounds" to="Ball" method="_p2_score_reset"]
 [connection signal="player_2_scored" from="Bounds" to="UI" method="_on_bounds_player_2_scored"]
 [connection signal="body_entered" from="Bounds/LeftBounds" to="Bounds" method="_on_left_bounds_body_entered"]
 [connection signal="body_entered" from="Bounds/RightBounds" to="Bounds" method="_on_right_bounds_body_entered"]

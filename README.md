@@ -3,9 +3,7 @@ Clone of pong
 
 
 ## ToDo:
-- ball pause when reset
-- ball bounce diff angles
-- send ball toward person who just scored
+- win condition
 
 ## Goals
 - Make Game
