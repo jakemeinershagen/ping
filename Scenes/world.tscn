@@ -1,6 +1,20 @@
-[gd_scene format=3 uid="uid://bdkladd1tenw4"]
+[gd_scene load_steps=3 format=3 uid="uid://bdkladd1tenw4"]
+
+[ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://paddle.tscn" id="1_jgmg6"]
+[ext_resource type="PackedScene" uid="uid://drkiyqaivlnmv" path="res://ball.tscn" id="2_mihg6"]
 
 [node name="World" type="Node2D"]
+
+[node name="LeftPaddle" parent="." instance=ExtResource("1_jgmg6")]
+position = Vector2(25, 360)
+paddle_side = "L"
+
+[node name="RightPaddle" parent="." instance=ExtResource("1_jgmg6")]
+position = Vector2(1255, 360)
+paddle_side = "R"
+
+[node name="Ball" parent="." instance=ExtResource("2_mihg6")]
+position = Vector2(640, 360)
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

@@ -1,0 +1,1 @@
+They moved the setting for filter on texture to the texture section on the node instead of in the import tab. You can also set in the project settings. Project Settings > General > Rendering > Textures > Canvas Textures > Set to 'Nearest'. [Thanks to this video.](https://www.youtube.com/watch?v=C-4V8q70qK8)
