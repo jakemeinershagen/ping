@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
+const SPEED = 500.0
 
 func _ready():
-	velocity.x = SPEED
+	_reset_ball()
 
 
 func _physics_process(delta):
@@ -12,4 +12,8 @@ func _physics_process(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 
-	move_and_slide()
+
+func _reset_ball():
+	velocity.x = SPEED
+	position.x = get_viewport().size.x / 2
+	position.y = get_viewport().size.y / 2
