@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdkladd1tenw4"]
+[gd_scene load_steps=8 format=3 uid="uid://bdkladd1tenw4"]
 
 [ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://paddle.tscn" id="1_jgmg6"]
 [ext_resource type="PackedScene" uid="uid://drkiyqaivlnmv" path="res://ball.tscn" id="2_mihg6"]
 [ext_resource type="Script" path="res://Scenes/bounds.gd" id="3_bi8nu"]
+[ext_resource type="AudioStream" uid="uid://db6303h1goj8w" path="res://sfx_sounds_fanfare3.wav" id="4_2bu5s"]
 [ext_resource type="Script" path="res://Scenes/ui.gd" id="4_cn3q2"]
 [ext_resource type="PackedScene" uid="uid://0rm0s4koe4ud" path="res://wall.tscn" id="5_g71vk"]
 
@@ -14,13 +15,13 @@ size = Vector2(50, 800)
 [node name="LeftPaddle" parent="." instance=ExtResource("1_jgmg6")]
 position = Vector2(25, 360)
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 paddle_side = "L"
 
 [node name="RightPaddle" parent="." instance=ExtResource("1_jgmg6")]
 position = Vector2(1255, 360)
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 paddle_side = "R"
 
 [node name="Ball" parent="." instance=ExtResource("2_mihg6")]
@@ -55,6 +56,10 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/RightBounds"]
 shape = SubResource("RectangleShape2D_hv71y")
 
+[node name="ScoreSound" type="AudioStreamPlayer" parent="Bounds"]
+stream = ExtResource("4_2bu5s")
+volume_db = -7.0
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -64,27 +69,33 @@ script = ExtResource("4_cn3q2")
 
 [node name="P1ScoreLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 301.0
-offset_top = 7.0
-offset_right = 341.0
-offset_bottom = 30.0
+offset_left = 320.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
 text = "0"
+horizontal_alignment = 1
 
 [node name="P2ScoreLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 984.0
-offset_top = 9.0
-offset_right = 1024.0
-offset_bottom = 32.0
+offset_left = 960.0
+offset_top = 10.0
+offset_right = 1000.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
 text = "0"
+horizontal_alignment = 1
 
 [node name="Wall" parent="." instance=ExtResource("5_g71vk")]
 position = Vector2(640, 0)
 collision_layer = 2
+collision_mask = 0
 
 [node name="Wall2" parent="." instance=ExtResource("5_g71vk")]
 position = Vector2(640, 720)
 collision_layer = 2
+collision_mask = 0
 
 [connection signal="player_1_scored" from="Bounds" to="Ball" method="_p1_score_reset"]
 [connection signal="player_1_scored" from="Bounds" to="UI" method="_on_bounds_player_1_scored"]

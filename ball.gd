@@ -24,6 +24,7 @@ func _physics_process(delta):
 			velocity = direction * SPEED
 		elif collision.get_collider() is Wall:
 			velocity = velocity.bounce(collision.get_normal())
+		$BounceSound.play()
 
 
 func _reset_ball():
