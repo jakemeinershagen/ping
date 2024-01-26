@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://drkiyqaivlnmv"]
 
-[ext_resource type="Script" path="res://ball.gd" id="1_2qj4l"]
-[ext_resource type="Texture2D" uid="uid://cmtbc1ifpi25x" path="res://ball.png" id="1_ir4di"]
-[ext_resource type="AudioStream" uid="uid://e37oi0h1mc2r" path="res://sfx_sounds_impact4.wav" id="3_ls6cs"]
+[ext_resource type="Script" path="res://Scripts/ball.gd" id="1_2qj4l"]
+[ext_resource type="Texture2D" uid="uid://cmtbc1ifpi25x" path="res://Assets/ball.png" id="1_ir4di"]
+[ext_resource type="AudioStream" uid="uid://e37oi0h1mc2r" path="res://Assets/sfx_sounds_impact4.wav" id="3_ls6cs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6em0"]
 radius = 8.0

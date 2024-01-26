@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdkladd1tenw4"]
 
-[ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://paddle.tscn" id="1_jgmg6"]
-[ext_resource type="PackedScene" uid="uid://drkiyqaivlnmv" path="res://ball.tscn" id="2_mihg6"]
-[ext_resource type="Script" path="res://Scenes/bounds.gd" id="3_bi8nu"]
-[ext_resource type="AudioStream" uid="uid://db6303h1goj8w" path="res://sfx_sounds_fanfare3.wav" id="4_2bu5s"]
-[ext_resource type="Script" path="res://Scenes/ui.gd" id="4_cn3q2"]
-[ext_resource type="PackedScene" uid="uid://0rm0s4koe4ud" path="res://wall.tscn" id="5_g71vk"]
+[ext_resource type="PackedScene" uid="uid://cyusujawjdm6b" path="res://Scenes/paddle.tscn" id="1_jgmg6"]
+[ext_resource type="PackedScene" uid="uid://drkiyqaivlnmv" path="res://Scenes/ball.tscn" id="2_mihg6"]
+[ext_resource type="Script" path="res://Scripts/bounds.gd" id="3_bi8nu"]
+[ext_resource type="AudioStream" uid="uid://db6303h1goj8w" path="res://Assets/sfx_sounds_fanfare3.wav" id="4_2bu5s"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="4_cn3q2"]
+[ext_resource type="PackedScene" uid="uid://0rm0s4koe4ud" path="res://Scenes/wall.tscn" id="5_g71vk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv71y"]
 size = Vector2(50, 800)
