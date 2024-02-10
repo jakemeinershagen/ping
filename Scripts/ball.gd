@@ -18,6 +18,7 @@ func _physics_process(delta):
 			var rel_pos_norm = ((collision.get_position().y - collision.get_collider().position.y) / \
 									collision.get_collider_shape().get_shape().get_rect().size.y) + 0.5
 			var angle_in_rad = deg_to_rad((rel_pos_norm * 170) + 5)
+			# here sin is from 0 to 1 and cos is from 1 to -1, top half of unit circle
 			var direction = Vector2(collision.get_normal().x * sin(angle_in_rad),\
 									-cos(angle_in_rad))
 			$DebugVector.set_point_position(1, 20 * direction)
